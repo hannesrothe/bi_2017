@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri May 12 09:00:38 2017
-
 @author: hrothe
 """
 
