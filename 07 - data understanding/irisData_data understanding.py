@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Create DataFrame using Pandas and set Column names
-iris = pd.read_csv('irisData.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])
+iris = pd.read_csv('../00 - data/irisData.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])
 # alternative: iris2 = sns.load_dataset("iris")
 #iris_list = iris.values.tolist()
 #iris_dict = iris.to_dict()
