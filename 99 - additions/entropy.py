@@ -26,7 +26,7 @@ print(scipy.stats.entropy(prob,base=2))
 
 # Let's compare this to the distribution of "True Values"
 true_data = pd.DataFrame()
-true_data['data'] = [1,0,0,0,0,1,1,1,1,1]
+true_data['data'] = [0,1,1,1,1,1,1,1,1,1]
 #get frequency of classes in the array
 freq_true = scipy.stats.itemfreq(true_data['data'])[:,1]
 
