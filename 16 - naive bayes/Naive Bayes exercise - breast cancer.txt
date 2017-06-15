@@ -1,0 +1,6 @@
+Calculate the Likelihood of a person who has breast cancer to be screened positive.
+
+The following is known from historical data:
+(1) One out of five persons who has breast cancer is screened negative.
+(2) There is a 9.6% chance to be screened positive, without having breast cancer.
+(3) 99 out of 100 women do not have breast cancer.
