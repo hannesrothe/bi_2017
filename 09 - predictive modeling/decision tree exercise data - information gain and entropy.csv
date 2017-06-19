@@ -1,0 +1,13 @@
+color,head,belly,write-off (target)
+white,square,ellipse,no
+black,circle,ellipse,yes
+white,square,rectangle,yes
+white,square,rectangle,yes
+white,square,rectangle,yes
+black,circle,rectangle,no
+white,square,rectangle,yes
+white,square,ellipse,no
+white,square,ellipse,no
+white,square,rectangle,yes
+white,square,ellipse,no
+white,circle,ellipse,yes
