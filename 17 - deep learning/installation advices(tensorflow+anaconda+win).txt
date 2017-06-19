@@ -1,0 +1,17 @@
+Follow instructions on https://www.tensorflow.org/install/
+
+*But, worth noting:
+There is no current Tensorflow library for Python 3.6.X (most likely installed on your Anaconda Installation).
+Hence, follow this instructions:
+
+1 Launch your Anaconda CMD as Admin
+#if tensorflow virtual env has been created, remove it first
+	1a conda remove --name tensorflow --all
+2 conda create -n tensorflow  --python=3.5 anaconda
+3 activate tensorflow
+4 conda install spyder
+5 conda install ipython
+6 pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.0.1-cp35-cp35m-win_amd64.whl
+7 run spyder from console
+
+Thanks to Allen from https://stackoverflow.com/questions/43315205/installing-tensorflow-with-pip-python-3-5-anaconda-in-windows
