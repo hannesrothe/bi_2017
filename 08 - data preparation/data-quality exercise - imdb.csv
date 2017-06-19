@@ -1,0 +1,6 @@
+"movie color
+(bw/color)",director_name,gross,genres,movie_title,language,country,budget,title_year
+Color,James Cameron,760505847,Action|Adventure|Fantasy|Sci-Fi,Avatar,English,USA,237000000,2009
+Color,James Cameron,NA,Drama|Romance,Titanic,NA,USA,200000000,1997
+NA,Fritz Lang,26435,Drama|Sci-Fi,Metropolis,German,Germany,6000000,1927
+Color,George Lucas,460935665,Action|Adventure|Fantasy|Sci-Fi,Star Wars: Episode IV - A New Hope,English,USA,11000000,1977
