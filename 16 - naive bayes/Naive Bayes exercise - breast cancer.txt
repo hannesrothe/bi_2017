@@ -1,4 +1,4 @@
-Calculate the Likelihood of a person who has breast cancer to be screened positive.
+Calculate the Likelihood of a person to have breast cancer, given the observation of a positive screening.
 
 The following is known from historical data:
 (1) One out of five persons who has breast cancer is screened negative.
