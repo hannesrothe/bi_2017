@@ -5,8 +5,10 @@
 
 from sklearn import tree
 import pandas as pd
+import seaborn as sns
 
-iris = pd.read_csv('../00 - data/irisData.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])
+#iris = pd.read_csv('../00 - data/irisData.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])
+iris = sns.load_dataset("iris")
 
 iris_b = iris.sample(100) #random build sample n=100
 iris_t = iris.loc[~iris.index.isin(iris_b.index)] #test sample n=50
@@ -46,13 +48,13 @@ Export alternative 1:
 #r = rules(clf, iris.columns.values.tolist(), iris['species'])
 #with open('structure.json', 'w') as f:
 #    f.write(json.dumps(r))
-#
+##
 
 """
 Export alternative 2:
     Export as as dot file and visualize with graphviz
 
-A library called pydot and Graphviz are needed
+A library called pydot and Graphviz (http://scikit-learn.org/stable/modules/generated/sklearn.tree.export_graphviz.html) are needed
 graphviz: You'll find it on http://www.graphviz.org/Download..php (install graphviz before pydot!) or install it with
 "conda install graphviz"
 pydot:
@@ -60,18 +62,18 @@ install it in the console with "conda install -c conda-forge pydotplus"
 (maybe admin rights are needed: in Windows right click on "Eingabeaufforderung"/"cmd" -> start as admin
 """
 
-#import pydotplus 
-#
-#with open("iris.dot", 'w') as f:
-#    f = tree.export_graphviz(clf, out_file=f)
-#
-#
-#dot_data = tree.export_graphviz(clf, out_file=None, 
-#                                feature_names=iris.columns.values.tolist(),
-#                                class_names=iris['species'],
-#                                filled=True, rounded=True,
-#                                special_characters=True)  
-#
-#graph = pydotplus.graph_from_dot_data(dot_data)  
-#graph.write_png("decTree.png")
-#graph.write_pdf("iris.pdf")
+import pydotplus 
+
+with open("iris.dot", 'w') as f:
+    f = tree.export_graphviz(clf, out_file=f)
+
+
+dot_data = tree.export_graphviz(clf, out_file=None, 
+                                feature_names=iris.columns.values.tolist(),
+                                class_names=iris['species'],
+                                filled=True, rounded=True,
+                                special_characters=True)  
+
+graph = pydotplus.graph_from_dot_data(dot_data)  
+graph.write_png("decTree.png")
+graph.write_pdf("iris.pdf")

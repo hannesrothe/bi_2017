@@ -17,52 +17,52 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Create DataFrame using Pandas and set Column names
-iris = pd.read_csv('../00 - data/irisData.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])
-# alternative: iris2 = sns.load_dataset("iris")
+#iris = pd.read_csv('../00 - data/irisData.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])
+iris = sns.load_dataset("iris")
 #iris_list = iris.values.tolist()
 #iris_dict = iris.to_dict()
 
 # Show descriptive statistics on dimensional distributions
-#print(iris.describe())
+print(iris.describe())
 
 # Describe relationships amoung variables in scatter plot
 # hue: Variable used for color mapping
-#sns.pairplot(iris, hue="species", palette="husl")
-#plt.show()
-#plt.clf()
+sns.pairplot(iris, hue="species", palette="husl")
+plt.show()
+plt.clf()
 
 
 """
 Principal Component Analysis
 2017-05-10
-"""
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import scale
-
-#select only metric data
-raw_iris = iris[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']]
-
-#center data to mean
-norm_iris = scale(raw_iris)
-
-#create pca with 2-dimensions
-pca = PCA(n_components=2)
-
-# pca data
-pca_iris = pca.fit_transform(norm_iris)
-print("Show PCA results:")
-print(norm_iris.shape)
-print(pca_iris.shape)
-
-
-vis_iris = pd.DataFrame(pca_iris, columns=['pc1', 'pc2'])
-vis_iris['species'] = iris['species']
-g = sns.FacetGrid(vis_iris, hue='species', size=5)
-g.map(plt.scatter, 'pc1', 'pc2')
-g.set_xlabels('principal component 1')
-g.set_ylabels('principal component 2')
-
-plt.show()
+#"""
+#from sklearn.decomposition import PCA
+#from sklearn.preprocessing import scale
+#
+##select only metric data
+#raw_iris = iris[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']]
+#
+##center data to mean
+#norm_iris = scale(raw_iris)
+#
+##create pca with 2-dimensions
+#pca = PCA(n_components=2)
+#
+## pca data
+#pca_iris = pca.fit_transform(norm_iris)
+#print("Show PCA results:")
+#print(norm_iris.shape)
+#print(pca_iris.shape)
+#
+#
+#vis_iris = pd.DataFrame(pca_iris, columns=['pc1', 'pc2'])
+#vis_iris['species'] = iris['species']
+#g = sns.FacetGrid(vis_iris, hue='species', size=5)
+#g.map(plt.scatter, 'pc1', 'pc2')
+#g.set_xlabels('principal component 1')
+#g.set_ylabels('principal component 2')
+#
+#plt.show()
 plt.clf()
 
 """
