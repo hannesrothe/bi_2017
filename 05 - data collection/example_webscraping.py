@@ -29,18 +29,18 @@ for inst in instSoup:
     crsNumber = re.findall('\d+', inst.find_parent('tr').find('span','courses-number').text)
 
 
-#		if re.search('\%20', url) is None: #data cleansing for inconsistent url data
-#			instData.append({'name': name, 'url': url,'type': instType, 'courses':crsNumber[0]})
-#
-#	response.close()
+    if re.search('\%20', url) is None: #data cleansing for inconsistent url data
+        instData.append({'name': name, 'url': url,'type': instType, 'courses':crsNumber[0]})
+
+response.close()
 
 
 #==============================================================================
 #    Export Pandas Table
 import pandas as pd
-#instDf = pd.DataFrame.from_dict(instData)
-#instDf.index.name = "instId"
-#
-#instDf.to_csv("2017-institutions.csv", encoding="utf-8")
+instDf = pd.DataFrame.from_dict(instData)
+instDf.index.name = "instId"
+
+instDf.to_csv("2017-institutions.csv", encoding="utf-8")
 
 
