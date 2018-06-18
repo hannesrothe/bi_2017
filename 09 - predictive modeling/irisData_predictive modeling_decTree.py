@@ -26,29 +26,29 @@ Export alternative 1:
     
     Source: http://planspace.org/20151129-see_sklearn_trees_with_d3/
 """
-#import json
+import json
+
+def rules(clf, features, labels, node_index=0):
+    
+    node = {}
+    if clf.tree_.children_left[node_index] == -1:  # indicates leaf
+        count_labels = zip(clf.tree_.value[node_index, 0], labels)
+        node['name'] = ', '.join(('{} of {}'.format(int(count), label)
+                                  for count, label in count_labels))
+    else:
+        feature = features[clf.tree_.feature[node_index]]
+        threshold = clf.tree_.threshold[node_index]
+        node['name'] = '{} > {}'.format(feature, threshold)
+        left_index = clf.tree_.children_left[node_index]
+        right_index = clf.tree_.children_right[node_index]
+        node['children'] = [rules(clf, features, labels, right_index),
+                            rules(clf, features, labels, left_index)]
+    return node
+
+r = rules(clf, iris.columns.values.tolist(), iris['species'])
+with open('structure.json', 'w') as f:
+    f.write(json.dumps(r))
 #
-#def rules(clf, features, labels, node_index=0):
-#    
-#    node = {}
-#    if clf.tree_.children_left[node_index] == -1:  # indicates leaf
-#        count_labels = zip(clf.tree_.value[node_index, 0], labels)
-#        node['name'] = ', '.join(('{} of {}'.format(int(count), label)
-#                                  for count, label in count_labels))
-#    else:
-#        feature = features[clf.tree_.feature[node_index]]
-#        threshold = clf.tree_.threshold[node_index]
-#        node['name'] = '{} > {}'.format(feature, threshold)
-#        left_index = clf.tree_.children_left[node_index]
-#        right_index = clf.tree_.children_right[node_index]
-#        node['children'] = [rules(clf, features, labels, right_index),
-#                            rules(clf, features, labels, left_index)]
-#    return node
-#
-#r = rules(clf, iris.columns.values.tolist(), iris['species'])
-#with open('structure.json', 'w') as f:
-#    f.write(json.dumps(r))
-##
 
 """
 Export alternative 2:
